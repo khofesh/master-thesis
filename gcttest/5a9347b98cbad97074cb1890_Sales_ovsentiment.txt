@@ -1,0 +1,7 @@
+Series length=317, embedding dimension=5, bandwidth=1.663102
+
+Null hypothesis: ./gcttest/Sales.txt does not cause ./gcttest/ovsentiment.txt
+T statistics=0.543, p-value=0.29360
+
+Null hypothesis: ./gcttest/ovsentiment.txt does not cause ./gcttest/Sales.txt
+T statistics=-0.353, p-value=0.63814

@@ -1,0 +1,7 @@
+Series length=317, embedding dimension=5, bandwidth=1.663102
+
+Null hypothesis: ./gcttest/Sales.txt does not cause ./gcttest/rating.txt
+T statistics=-1.582, p-value=0.94323
+
+Null hypothesis: ./gcttest/rating.txt does not cause ./gcttest/Sales.txt
+T statistics=-1.041, p-value=0.85097
