@@ -1,15 +1,12 @@
-Steps followed to build the model
+## Steps followed to build the model
 
-Folders :
+## Folders :
     1. crawler: scrapy source code
     2. csvfiles: 
     3. defaultavatar:
     4. lib:
     5. graphs:
     6. profpics: 
-
-# MUNGKIN YANG PERTAMA BUKAN INI, TAPI DOWNLOAD profile pictures
-# terlebih dahulu, kemudian komparasi, setelah itu masukkan ke database.
 
 0. Crawler
 
