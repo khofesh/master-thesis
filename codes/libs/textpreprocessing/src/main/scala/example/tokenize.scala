@@ -8,16 +8,16 @@ import collection.JavaConverters._
 import IndonesianNLP._
 
 object tokenizeText extends App{
-
-val input = "out1.csv"
-val tokenizer = new IndonesianSentenceTokenizer
-val output = new File("out2.csv")
-
-for(line <- Source.fromFile(input).getLines){
-  var token = tokenizer.tokenizeSentenceWithCompositeWords(line)
-  val writer = CSVWriter.open(output, append=true)
-  writer.writeRow(List(token))
-  writer.close()
   
-}
+  val input = "out1.csv"
+  val tokenizer = new IndonesianSentenceTokenizer
+  val output = new File("out2.csv")
+  
+  for(line <- Source.fromFile(input).getLines){
+    var token = tokenizer.tokenizeSentenceWithCompositeWords(line)
+    val writer = CSVWriter.open(output, append=true)
+    writer.writeRow(List(token))
+    writer.close()
+    
+  }
 }
