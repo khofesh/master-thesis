@@ -1,0 +1,42 @@
+package processtext
+
+import scala.io.Source
+import com.github.tototoshi.csv._
+import java.io._
+import collection.JavaConverters._
+//InaNLP
+import IndonesianNLP._
+
+object processText extends App{
+
+val filename = "./reviewText.csv"
+val tokenizer = new IndonesianSentenceTokenizer
+val formalizer = new IndonesianSentenceFormalization
+val stemmer = new IndonesianStemmer
+val f = new File("out1.csv")
+
+for(line <- Source.fromFile(filename).getLines){
+  // remove dot with space
+  val nodot = line.replaceAll("\\.", " ")
+  // replace comma with space
+  val nocomma = nodot.replaceAll("\\,", " ")
+  
+  // normalisasi kata dan eliminasi stopword
+  // 'normalizeSentence' lebih tepat dibandingkan 'formalizeWord'
+  val sentence = formalizer.formalizeSentence(nocomma)
+  // delete stop words
+  formalizer.initStopword
+  val nostopword = formalizer.deleteStopword(sentence)
+  // remove punctuation
+  val nopunctuation = nostopword.replaceAll("""([\p{Punct}&&[^.]]|\b\p{IsLetter}{1,2}\b)\s*""", "")
+
+  // stem sentence
+  val stemmed = stemmer.stemSentence(nopunctuation)
+  
+  // write to csv file
+  val bw = new BufferedWriter( new FileWriter(f, true))
+  bw.write(stemmed + "\n")
+  bw.close()
+
+}
+}
